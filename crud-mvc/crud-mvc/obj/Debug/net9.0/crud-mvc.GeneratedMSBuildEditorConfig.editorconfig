@@ -32,6 +32,14 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5pY2lvL0NyZWFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/ignacio/Developer/cs-mvc/crud-mvc/crud-mvc/Views/Inicio/Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5pY2lvL0RldGFsbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/ignacio/Developer/cs-mvc/crud-mvc/crud-mvc/Views/Inicio/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5pY2lvL0VkaXRhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/ignacio/Developer/cs-mvc/crud-mvc/crud-mvc/Views/Inicio/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW5pY2lvL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
