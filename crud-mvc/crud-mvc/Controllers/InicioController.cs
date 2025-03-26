@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using crud_mvc.Models;
 using crud_mvc.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace crud_mvc.Controllers;
 
@@ -24,6 +25,22 @@ public class InicioController : Controller
     [HttpGet]
     public IActionResult Crear()
     {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Crear(Contacto contacto)
+    {
+        // valida las validaciones de los campos del modelo contacto.
+        if (ModelState.IsValid)
+        {
+            //agregar fecha actual
+            contacto.FechaCreacion = DateTime.Now;
+            this._contexto.Contactos.Add(contacto);
+            await this._contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
         return View();
     }
 
