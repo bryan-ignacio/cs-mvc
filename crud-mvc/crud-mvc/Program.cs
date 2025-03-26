@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//Inyecciond el contexto.
+//Inyeccion del contexto.
 builder.Services.AddDbContext<ContactosDbContext>(
     options =>
     {
@@ -33,7 +33,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Inicio}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 

@@ -1,19 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using crud_mvc.Models;
+using crud_mvc.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace crud_mvc.Controllers;
 
-public class HomeController : Controller
+public class InicioController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ContactosDbContext _contexto;
 
-    public HomeController(ILogger<HomeController> logger)
+    public InicioController(ContactosDbContext contexto)
     {
-        _logger = logger;
+        this._contexto = contexto;
     }
 
-    public IActionResult Index()
+    [HttpGet]
+    public async Task<IActionResult> Index()
+    {
+        return View(await this._contexto.Contactos.ToListAsync());
+    }
+
+    [HttpGet]
+    public IActionResult Crear()
     {
         return View();
     }

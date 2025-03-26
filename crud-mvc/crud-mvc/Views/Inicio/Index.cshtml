@@ -1,0 +1,75 @@
+﻿@* acceder al modelo Contacto. *@
+@model IEnumerable<crud_mvc.Models.Contacto>
+
+@{
+    ViewData["Title"] = "Lista de Contactos";
+}
+<h1 class="text-center">Contacto con .NET8(.NET Core MVC)</h1>
+
+<div class="row">
+    <div class="offset-9 col-3 mb-3">
+        @* 
+        asp-action: es el metodo de la peticion.
+        asp-controller: va ir a la pagina de Inicio.
+         *@
+        <a asp-action="Crear" asp-controller="Inicio" class="btn btn-secondary">
+            <i class="fa-solid fa-plus"></i> Nuevo Usuario
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"> <strong>Lista de Usuarios</strong></h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    @* pregunta si hay registros. *@
+                    @if (Model.Count() > 0)
+                    {
+                        <table class="table table-bordered" id="tblUsuarios">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.Id)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Nombre)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Telefono)</th>
+                                    <th>@Html.DisplayNameFor(m => m.Celular)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FechaCreacion)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@Html.DisplayFor(m => item.Id)</td>
+                                        <td>@Html.DisplayFor(m => item.Nombre)</td>
+                                        <td>@Html.DisplayFor(m => item.Telefono)</td>
+                                        <td>@Html.DisplayFor(m => item.Celular)</td>
+                                        <td>@Html.DisplayFor(m => item.FechaCreacion)</td>
+                                        <td>
+                                            <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-pen-to-square"></i> Editar
+                                            </a>
+                                            <a class="btn btn-secondary" asp-action="Detalle" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-circle-info"></i> Detalle
+                                            </a>
+                                            <a class="btn btn-danger" asp-action="Borrar" asp-route-id="@item.Id">
+                                                <i class="fa-solid fa-trash"></i> Borrar
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No hay Registro</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
