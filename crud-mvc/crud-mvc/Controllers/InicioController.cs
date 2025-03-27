@@ -88,6 +88,40 @@ public class InicioController : Controller
         return View(contacto);
     }
 
+
+
+    [HttpGet]
+    public IActionResult Borrar(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var contacto = this._contexto.Contactos.Find(id);
+        if (contacto == null)
+        {
+            return NotFound();
+        }
+        return View(contacto);
+    }
+
+    // el actionName se utiliza solo si el metodo que queremos tenga otro nombre.
+    [HttpPost, ActionName("Borrar")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> BorrarContacto(int? id)
+    {
+        var contacto = await this._contexto.Contactos.FindAsync(id);
+        if (contacto == null)
+        {
+            // lo mandamos a la misma vista.
+            return View();
+        }
+        //borrado
+        this._contexto.Remove(contacto);
+        await this._contexto.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
     public IActionResult Privacy()
     {
         return View();
