@@ -10,5 +10,4 @@ public class ContactosDbContext : DbContext
 
     // Agregar Modelos(Cada modelo corresponda a una tabla en la base de datos)
     public DbSet<Contacto> Contactos { get; set; }
-
 }

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using crud_mvc.Models;
 using crud_mvc.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+
 
 namespace crud_mvc.Controllers;
 
@@ -133,3 +133,6 @@ public class InicioController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+//ActionResult<TipoDato> : recibe un tipo de dato y retorna una respuesta se usa en GET 
+
+// IActionResult : se utiliza cuando no queremos retornar nada en la respuesta. se usa en PUT, DELETE, UPDATE
