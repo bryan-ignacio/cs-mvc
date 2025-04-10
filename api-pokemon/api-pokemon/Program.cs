@@ -1,7 +1,11 @@
+using api_pokemon.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IPokemonService, PokemonService>();
+
 
 var app = builder.Build();
 
