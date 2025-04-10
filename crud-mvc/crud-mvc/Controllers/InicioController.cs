@@ -4,7 +4,6 @@ using crud_mvc.Models;
 using crud_mvc.Data;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace crud_mvc.Controllers;
 
 public class InicioController : Controller
