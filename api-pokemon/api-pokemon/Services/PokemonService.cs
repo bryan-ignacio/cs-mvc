@@ -18,8 +18,11 @@ public class PokemonService : IPokemonService
         string url = $"https://pokeapi.co/api/v2/pokemon/{nombre}";
         var result = await this._httpClient.GetAsync(url);
         var body = await result.Content.ReadAsStringAsync();
-        var pokemonObj = JsonSerializer.Deserialize<PokemonDTO>(body);
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        var pokemonObj = JsonSerializer.Deserialize<PokemonDTO>(body, options);
         return pokemonObj;
     }
-
 }

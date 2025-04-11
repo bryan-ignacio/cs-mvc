@@ -16,7 +16,7 @@ namespace api_pokemon.Controllers
             this._pokemonService = pokemonService;
         }
 
-        [HttpGet]
+        [HttpGet("{nombre}")]
         public async Task<PokemonDTO> ObtenerPokemon(string nombre)
         {
             return await this._pokemonService.Obtener(nombre);
