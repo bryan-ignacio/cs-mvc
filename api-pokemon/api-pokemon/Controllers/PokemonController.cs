@@ -21,6 +21,5 @@ namespace api_pokemon.Controllers
         {
             return await this._pokemonService.Obtener(nombre);
         }
-
     }
 }

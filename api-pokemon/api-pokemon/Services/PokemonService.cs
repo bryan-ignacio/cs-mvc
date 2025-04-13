@@ -8,15 +8,15 @@ public class PokemonService : IPokemonService
 {
     private HttpClient _httpClient;
 
-    public PokemonService()
+    public PokemonService(HttpClient httpClient)
     {
-        this._httpClient = new HttpClient();
+        this._httpClient = httpClient;
     }
 
     public async Task<PokemonDTO> Obtener(string nombre)
     {
-        string url = $"https://pokeapi.co/api/v2/pokemon/{nombre}";
-        var result = await this._httpClient.GetAsync(url);
+        // string url = $"https://pokeapi.co/api/v2/pokemon/{nombre}";
+        var result = await this._httpClient.GetAsync(this._httpClient.BaseAddress + nombre);
         var body = await result.Content.ReadAsStringAsync();
         var options = new JsonSerializerOptions
         {

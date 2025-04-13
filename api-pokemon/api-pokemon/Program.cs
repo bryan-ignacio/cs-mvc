@@ -6,6 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IPokemonService, PokemonService>();
 
+builder.Services.AddHttpClient<IPokemonService, PokemonService>(
+    c =>
+    {
+        c.BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon/");
+    }
+);
 
 var app = builder.Build();
 
