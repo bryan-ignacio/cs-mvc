@@ -1,24 +1,20 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using api_pokemon.Models;
+using api_pokemon.Services;
 
 namespace api_pokemon.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    IPokemonService _pokemonService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IPokemonService pokemonService)
     {
-        _logger = logger;
+        this._pokemonService = pokemonService;
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }
