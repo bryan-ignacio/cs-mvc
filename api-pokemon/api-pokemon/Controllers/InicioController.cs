@@ -5,17 +5,18 @@ using api_pokemon.Services;
 
 namespace api_pokemon.Controllers;
 
-public class HomeController : Controller
+public class InicioController : Controller
 {
     IPokemonService _pokemonService;
 
-    public HomeController(IPokemonService pokemonService)
+    public InicioController(IPokemonService pokemonService)
     {
         this._pokemonService = pokemonService;
     }
 
     public IActionResult Index()
     {
+
         return View();
     }
 

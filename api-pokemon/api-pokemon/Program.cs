@@ -30,9 +30,9 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+// este es el punto inicial de la App.
+// el controlador es InicioController y el metodo a accionar es Index()
+app.MapControllerRoute(name: "default", pattern: "{controller=Inicio}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
