@@ -18,7 +18,6 @@
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/scopedcss/bundle/api-pokemon.styles.css
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/scopedcss/projectbundle/api-pokemon.bundle.scp.css
-/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-b9sayid5wm.gz
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/hbjku6skts-61n19gt1b8.gz
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/sa6p4hckia-xtxxf3hu2r.gz
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/n366ns1mi1-bqjiyaj88i.gz
@@ -96,3 +95,4 @@
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/api-pokemon.pdb
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/api-pokemon.genruntimeconfig.cache
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/ref/api-pokemon.dll
+/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz
