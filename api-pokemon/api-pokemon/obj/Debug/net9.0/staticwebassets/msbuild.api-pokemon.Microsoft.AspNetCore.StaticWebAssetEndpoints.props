@@ -15,14 +15,14 @@
     <StaticWebAssetEndpoint Include="_content/api-pokemon/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 01:04:05 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-WAODqxr4uSzS4PBZj\u002BYxqOuUNzrEoOxUzuMTg66eoBc="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"554"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WAODqxr4uSzS4PBZj\u002BYxqOuUNzrEoOxUzuMTg66eoBc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 03:29:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/api-pokemon/css/site.p96ecesqv8.css">
+    <StaticWebAssetEndpoint Include="_content/api-pokemon/css/site.kxvskeatjf.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"p96ecesqv8"},{"Name":"integrity","Value":"sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="},{"Name":"label","Value":"_content/api-pokemon/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"429"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 01:04:05 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kxvskeatjf"},{"Name":"integrity","Value":"sha256-WAODqxr4uSzS4PBZj\u002BYxqOuUNzrEoOxUzuMTg66eoBc="},{"Name":"label","Value":"_content/api-pokemon/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"554"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WAODqxr4uSzS4PBZj\u002BYxqOuUNzrEoOxUzuMTg66eoBc=\u0022"},{"Name":"Last-Modified","Value":"Sun, 20 Apr 2025 03:29:52 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/api-pokemon/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

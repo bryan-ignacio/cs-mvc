@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iScN9hv6mENthQZYgCliI7SI0o+2ICgBd4Fuy0iR01w=",
+  "Hash": "uXB8vKlSRNWOXdPnTWPo/P9Pa/fGv/MnLjIfnPZRATQ=",
   "Source": "api-pokemon",
   "BasePath": "_content/api-pokemon",
   "Mode": "Default",
@@ -1046,12 +1046,12 @@
       "OriginalItemSpec": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map"
     },
     {
-      "Identity": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz",
+      "Identity": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz",
       "SourceId": "api-pokemon",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/api-pokemon",
-      "RelativePath": "css/site#[.{fingerprint=p96ecesqv8}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=kxvskeatjf}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1060,8 +1060,8 @@
       "RelatedAsset": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "lucev09xhq",
-      "Integrity": "c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg=",
+      "Fingerprint": "tvlph7rnq5",
+      "Integrity": "9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/wwwroot/css/site.css"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "p96ecesqv8",
-      "Integrity": "wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=",
+      "Fingerprint": "kxvskeatjf",
+      "Integrity": "WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -3325,12 +3325,12 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz",
+      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003731343284"
+          "Quality": "0.003105590062"
         }
       ],
       "ResponseHeaders": [
@@ -3340,15 +3340,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "267"
+          "Value": "321"
         },
         {
           "Name": "ETag",
-          "Value": "\"c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg=\""
+          "Value": "\"9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3368,13 +3368,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\""
+          "Value": "W/\"WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="
+          "Value": "sha256-WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc="
         }
       ]
     },
@@ -3389,7 +3389,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "429"
+          "Value": "554"
         },
         {
           "Name": "Content-Type",
@@ -3397,11 +3397,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\""
+          "Value": "\"WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3411,13 +3411,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="
+          "Value": "sha256-WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz",
+      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3426,7 +3426,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "267"
+          "Value": "321"
         },
         {
           "Name": "Content-Type",
@@ -3434,11 +3434,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg=\""
+          "Value": "\"9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3456,18 +3456,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg="
+          "Value": "sha256-9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc="
         }
       ]
     },
     {
-      "Route": "css/site.p96ecesqv8.css",
-      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz",
+      "Route": "css/site.kxvskeatjf.css",
+      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003731343284"
+          "Quality": "0.003105590062"
         }
       ],
       "ResponseHeaders": [
@@ -3477,15 +3477,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "267"
+          "Value": "321"
         },
         {
           "Name": "ETag",
-          "Value": "\"c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg=\""
+          "Value": "\"9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3505,13 +3505,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\""
+          "Value": "W/\"WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "p96ecesqv8"
+          "Value": "kxvskeatjf"
         },
         {
           "Name": "label",
@@ -3519,12 +3519,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="
+          "Value": "sha256-WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc="
         }
       ]
     },
     {
-      "Route": "css/site.p96ecesqv8.css",
+      "Route": "css/site.kxvskeatjf.css",
       "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3534,7 +3534,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "429"
+          "Value": "554"
         },
         {
           "Name": "Content-Type",
@@ -3542,11 +3542,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ=\""
+          "Value": "\"WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3556,7 +3556,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "p96ecesqv8"
+          "Value": "kxvskeatjf"
         },
         {
           "Name": "label",
@@ -3564,13 +3564,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-wyR2N9g0Ku7mf1NWBb4J6jZm5uamRxM9lrGbEEyTzYQ="
+          "Value": "sha256-WAODqxr4uSzS4PBZj+YxqOuUNzrEoOxUzuMTg66eoBc="
         }
       ]
     },
     {
-      "Route": "css/site.p96ecesqv8.css.gz",
-      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz",
+      "Route": "css/site.kxvskeatjf.css.gz",
+      "AssetFile": "/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3579,7 +3579,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "267"
+          "Value": "321"
         },
         {
           "Name": "Content-Type",
@@ -3587,11 +3587,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg=\""
+          "Value": "\"9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:04:05 GMT"
+          "Value": "Sun, 20 Apr 2025 03:29:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3609,7 +3609,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "p96ecesqv8"
+          "Value": "kxvskeatjf"
         },
         {
           "Name": "label",
@@ -3617,7 +3617,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-c3gE6FQE72ag/4VT8TdmDBO1b3+/RBfL1pzQFqrrimg="
+          "Value": "sha256-9ydzCCxOaFDN/yDiwhjRS9x8hPHxuZAxjzaIhgfsbxc="
         }
       ]
     },

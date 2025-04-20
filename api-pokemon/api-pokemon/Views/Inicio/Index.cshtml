@@ -13,7 +13,7 @@
 
 @if (Model != null)
 {
-    <div class="card">
+    <div class="card mx-auto mt-4">
         <div class="card-body">
             @if (Model.Sprites != null && !string.IsNullOrEmpty(Model.Sprites.FrontDefault))
             {
@@ -25,7 +25,7 @@
                 <p>No se encontro la imagen para este pokemon.</p>
             }
         </div>
-        <div class="content">
+        <div class="content ">
             <h2 class="card-title">@Model.Name</h2>
             <p class="card-text">Id: @Model.Id</p>
         </div>
@@ -33,5 +33,5 @@
 }
 else if (ViewBag.Error != null)
 {
-    <p style="color: red;"> @ViewBag.Error</p>
+    <div class="alert alert-danger mt-4">@ViewBag.Error</div>
 }

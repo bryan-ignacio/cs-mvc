@@ -95,4 +95,4 @@
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/api-pokemon.pdb
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/api-pokemon.genruntimeconfig.cache
 /Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/ref/api-pokemon.dll
-/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-p96ecesqv8.gz
+/Users/ignacio/Developer/cs-mvc/api-pokemon/api-pokemon/obj/Debug/net9.0/compressed/tsh2by4dg6-kxvskeatjf.gz
