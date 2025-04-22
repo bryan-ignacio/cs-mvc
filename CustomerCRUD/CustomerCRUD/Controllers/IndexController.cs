@@ -4,21 +4,11 @@ using CustomerCRUD.Models;
 
 namespace CustomerCRUD.Controllers;
 
-public class HomeController : Controller
+public class IndexController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+    public IndexController() { }
 
     public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
     {
         return View();
     }

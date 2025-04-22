@@ -1,0 +1,12 @@
+/* _content/CustomerCRUD/Views/Shared/_Layout.cshtml.rz.scp.css */
+
+.menu[b-pua2zwjvb9] {
+    display: flex;
+    padding: 15px;
+    background-color: #14213d;
+    justify-content: space-between;
+}
+
+html[b-pua2zwjvb9]{
+    background-color: red;
+}
