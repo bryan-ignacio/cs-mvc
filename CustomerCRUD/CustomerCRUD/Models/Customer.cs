@@ -12,6 +12,9 @@ public class Customer
     [Required(ErrorMessage = "El nombre es obligatorio")]
     public string Nombre { get; set; }
 
+    [Required(ErrorMessage = "El apellido es obligatorio")]
+    public string Apellido { get; set; }
+
     [Required(ErrorMessage = "El Nit es obligatorio")]
     public string Nit { get; set; }
 

@@ -1,16 +1,22 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CustomerCRUD.Models;
+using CustomerCRUD.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CustomerCRUD.Controllers;
 
 public class IndexController : Controller
 {
-    public IndexController() { }
-
-    public IActionResult Index()
+    private readonly CustomerDbContext _context;
+    public IndexController(CustomerDbContext context)
     {
-        return View();
+        this._context = context;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        return View(await this._context.Customer.ToListAsync());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
