@@ -81,6 +81,37 @@ public class IndexController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult Info(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var cliente = this._context.Customer.Find(id);
+        if (cliente == null)
+        {
+            return NotFound();
+        }
+        return View(cliente);
+    }
+
+    [HttpGet]
+    public IActionResult Borrar(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var cliente = this._context.Customer.Find(id);
+        if (cliente == null)
+        {
+            return NotFound();
+        }
+        return View(cliente);
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
