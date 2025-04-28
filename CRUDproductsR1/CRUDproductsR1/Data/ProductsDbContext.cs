@@ -7,5 +7,5 @@ public class ProductsDbContext : DbContext
 {
     public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options) { }
 
-    DbSet<Product> Product { get; set; }
+    public DbSet<Product> Product { get; set; }
 }

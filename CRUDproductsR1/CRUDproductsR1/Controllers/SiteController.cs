@@ -8,15 +8,15 @@ namespace CRUDproductsR1.Controllers;
 public class SiteController : Controller
 {
 
-    private readonly ProductsDbContext _context;
+    private readonly ProductsDbContext _contexto;
 
     public SiteController(ProductsDbContext context)
     {
-        this._context = context;
+        this._contexto = context;
     }
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         return View();
     }
