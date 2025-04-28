@@ -52,6 +52,27 @@ public class SiteController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult Info(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var product = this._contexto.Product.Find(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+        return View(product);
+    }
+
+    [HttpGet]
+    public IActionResult Borrar()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
