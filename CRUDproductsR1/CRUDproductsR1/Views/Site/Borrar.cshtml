@@ -1,1 +1,47 @@
-﻿
+﻿@model CRUDproductsR1.Models.Product
+@{
+    ViewData["Title"] = "Borrar Producto";
+}
+
+<div class="row">
+    <div class="text-center">
+        <h3>Producto: @Html.DisplayFor(m => m.Codigo)
+    </div>
+</div>
+
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h4>Información del Producto a Borrar</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Site" asp-action="Borrar">
+                <div class="form-group">
+                    <label asp-for="Codigo" class="control-label"></label>
+                    <input asp-for="Codigo" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioUnitario" class="control-label"></label>
+                    <input asp-for="PrecioUnitario" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioFardo" class="control-label"></label>
+                    <input asp-for="PrecioFardo" class="form-control" readonly>
+                </div>
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-danger d-block mx-auto">
+                        <i class="fa-solid fa-trash"></i> Borrar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-secondary mt-4" asp-controller="Site" asp-action="Index">
+        <i class="fa-solid fa-circle-left"></i> Regresar</a>
+</div>

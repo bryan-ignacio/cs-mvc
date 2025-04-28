@@ -69,9 +69,26 @@ public class SiteController : Controller
     }
 
     [HttpGet]
-    public IActionResult Borrar()
+    public IActionResult Borrar(int? id)
     {
-        return View();
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var product = this._contexto.Product.Find(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+        return View(product);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Borrar(Product product)
+    {
+        this._contexto.Remove(product);
+        await this._contexto.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
