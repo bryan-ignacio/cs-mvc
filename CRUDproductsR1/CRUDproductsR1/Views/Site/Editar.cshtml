@@ -1,1 +1,51 @@
-﻿
+﻿@model CRUDproductsR1.Models.Product
+@{
+    ViewData["Title"] = "Editar Producto";
+}
+
+<div class="row">
+    <div class="text-center">
+        <h3>Producto
+    </div>
+</div>
+
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h4>Editar Producto</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Site" asp-action="Editar" method="POST">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" placeholder="Ingresa el nuevo Nombre">
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PrecioUnitario" class="control-label"></label>
+                    <input asp-for="PrecioUnitario" class="form-control" placeholder="Ingresa el nuevo Precio Unitario">
+                    <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PrecioFardo" class="control-label"></label>
+                    <input asp-for="PrecioFardo" class="form-control" placeholder="Ingresa el nuevo Precio Fardo">
+                    <span asp-validation-for="PrecioFardo" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-4">
+                    <button type="submit" class="btn btn-warning d-block mx-auto">
+                        <i class="fa-brands fa-product-hunt"></i> Editar Producto
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-4" asp-controller="Site" asp-action="Index">
+        <i class="fa-solid fa-circle-left"></i> Regresar</a>
+</div>

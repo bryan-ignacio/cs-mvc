@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CRUDproductsR1.Models;
 using CRUDproductsR1.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CRUDproductsR1.Controllers;
 
@@ -24,8 +25,30 @@ public class SiteController : Controller
     }
 
     [HttpGet]
-    public IActionResult Editar()
+    public IActionResult Editar(int? id)
     {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var product = this._contexto.Product.Find(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+        return View(product);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Editar(Product product)
+    {
+        if (ModelState.IsValid)
+        {
+            this._contexto.Update(product);
+            await this._contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
         return View();
     }
 
