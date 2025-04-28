@@ -26,7 +26,6 @@
             {
                 <table class="table table-rounded table-bordered table-hover table-responsive " width="100%">
                     <thead class="table-info border-0">
-
                         <tr>
                             <th class="text-center">@Html.DisplayNameFor(m => m.Id)</th>
                             <th class="text-center">@Html.DisplayNameFor(m => m.Codigo)</th>
@@ -37,34 +36,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>CF001</td>
-                            <td>Café la Jarrillita</td>
-                            <td>10</td>
-                            <td>1200</td>
-                            <td>
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-warning mx-2">Editar</button>
-                                    <button type="button" class="btn btn-info mx-2">Información</button>
-                                    <button type="button" class="btn btn-danger mx-2">Borrar</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>JG002</td>
-                            <td>Jugo del Frutal</td>
-                            <td>5</td>
-                            <td>120</td>
-                            <td>
-                                <div class="d-flex justify-content-center">
-                                    <button type="button" class="btn btn-warning mx-2">Editar</button>
-                                    <button type="button" class="btn btn-info mx-2">Información</button>
-                                    <button type="button" class="btn btn-danger mx-2">Borrar</button>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach (Product product in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(m => product.Id)</td>
+                                <td>@Html.DisplayFor(m => product.Codigo)</td>
+                                <td>@Html.DisplayFor(m => product.Nombre)</td>
+                                <td>Q. @Html.DisplayFor(m => product.PrecioUnitario)</td>
+                                <td>Q. @Html.DisplayFor(m => product.PrecioFardo)</td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <a asp-controller="Site" asp-action="Editar" asp-route-id="@product.Id" type="button"
+                                            class="btn btn-warning mx-2">
+                                            <i class="fa-solid fa-pen"></i> Editar</a>
+                                        <a asp-controller="Site" asp-action="Info" asp-route-id="@product.Id" type="button"
+                                            class="btn btn-info mx-2">
+                                            <i class="fa-solid fa-circle-info"></i> Información</a>
+                                        <a asp-controller="Site" asp-action="Borrar" asp-route-id="@product.Id" type="button"
+                                            class="btn btn-danger mx-2">
+                                            <i class="fa-solid fa-trash"></i> Borrar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             }
@@ -74,7 +68,6 @@
                     <h3>No hay productos :(</h3>
                 </div>
             }
-
         </div>
     </div>
 </div>
