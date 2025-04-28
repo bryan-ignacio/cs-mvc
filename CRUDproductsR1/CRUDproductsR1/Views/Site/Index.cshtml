@@ -14,6 +14,11 @@
             <i class="fa-solid fa-plus"></i> Agregar Producto
         </a>
     </div>
+    <div class="offset-9 col-3 mb-3">
+        <a asp-action="Subir" asp-controller="Site" class="btn btn-warning d-block mx-auto btn-lg">
+            <i class="fa-solid fa-file"></i> Subir SVG
+        </a>
+    </div>
 </div>
 
 <div class="card">
@@ -65,7 +70,7 @@
             else
             {
                 <div>
-                    <h3>No hay productos :(</h3>
+                    <h3 class="text-danger">No hay productos :(</h3>
                 </div>
             }
         </div>
