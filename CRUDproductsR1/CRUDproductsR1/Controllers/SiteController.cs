@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CRUDproductsR1.Models;
 using CRUDproductsR1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CRUDproductsR1.Controllers;
 
@@ -18,7 +19,8 @@ public class SiteController : Controller
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        return View();
+        List<Product> products = await this._contexto.Product.ToListAsync();
+        return View(products);
     }
 
     [HttpGet]

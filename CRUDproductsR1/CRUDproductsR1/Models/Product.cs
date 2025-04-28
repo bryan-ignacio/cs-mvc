@@ -12,11 +12,11 @@ public class Product
 
     [Display(Name = "Codigo del Producto")]
     [Required(ErrorMessage = "El Codigo es obligatorio")]
-    public string Codigo { get; set; }
+    public string? Codigo { get; set; }
 
     [Display(Name = "Nombre")]
     [Required(ErrorMessage = "El Nombre es obligatorio")]
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
 
     [Display(Name = "Precio Unitario")]
     [Required(ErrorMessage = "El Precio Unitario es obligatorio")]
