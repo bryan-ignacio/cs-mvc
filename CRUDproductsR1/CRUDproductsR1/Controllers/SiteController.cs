@@ -1,12 +1,19 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using CRUDproductsR1.Models;
+using CRUDproductsR1.Data;
 
 namespace CRUDproductsR1.Controllers;
 
 public class SiteController : Controller
 {
-    public SiteController() { }
+
+    private readonly ProductsDbContext _context;
+
+    public SiteController(ProductsDbContext context)
+    {
+        this._context = context;
+    }
 
     [HttpGet]
     public IActionResult Index()

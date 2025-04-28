@@ -1,7 +1,14 @@
+using CRUDproductsR1.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ProductsDbContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionSql"))
+);
 
 var app = builder.Build();
 
