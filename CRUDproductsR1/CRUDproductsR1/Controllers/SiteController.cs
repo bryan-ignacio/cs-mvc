@@ -8,7 +8,14 @@ public class SiteController : Controller
 {
     public SiteController() { }
 
+    [HttpGet]
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    [HttpGet]
+    public IActionResult Editar()
     {
         return View();
     }
