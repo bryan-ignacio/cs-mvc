@@ -109,6 +109,15 @@ public class SiteController : Controller
         return View();
     }
 
+    [HttpGet]
+    //puedes crear un metodo que agregue varios productos a la db.
+    //el modelo Product: int Id, string Codigo, string Nombre, decimal PrecioUnitario, decimal Precio Fardo
+    // esto se hace desde un boton que tiene asp-action="Subir" pero desde este poder seleccionar un archivo.
+    public IActionResult Subir()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
