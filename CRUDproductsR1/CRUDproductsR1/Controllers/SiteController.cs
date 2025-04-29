@@ -106,6 +106,12 @@ public class SiteController : Controller
     {
         if (ModelState.IsValid)
         {
+            var exist = await _contexto.Product.AnyAsync(p => p.Codigo == product.Codigo);
+            if (exist)
+            {
+                ModelState.AddModelError("Codigo", "Ya existe un producto con este código.");
+                return View();
+            }
             this._contexto.Product.Add(product);
             await this._contexto.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
