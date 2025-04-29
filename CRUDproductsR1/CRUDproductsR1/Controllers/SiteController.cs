@@ -100,6 +100,7 @@ public class SiteController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Agregar(Product product)
     {
         if (ModelState.IsValid)
@@ -168,6 +169,14 @@ public class SiteController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpGet]
+    public IActionResult Mostrar()
+    {
+
+        return View();
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
