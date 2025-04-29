@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Globalization;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CRUDproductsR1.Controllers;
 
@@ -141,9 +142,9 @@ public class SiteController : Controller
                 {
                     continue; // saltar líneas mal formateadas
                 }
-
                 try
                 {
+                    // se crea el producto con los datos del archivo.
                     var producto = new Product
                     {
                         Codigo = columnas[0].Trim(),
@@ -151,6 +152,7 @@ public class SiteController : Controller
                         PrecioUnitario = decimal.Parse(columnas[2].Trim(), CultureInfo.InvariantCulture),
                         PrecioFardo = decimal.Parse(columnas[3].Trim(), CultureInfo.InvariantCulture)
                     };
+                    // ahora validamos si este producto con este codigo ya existe?
 
                     productos.Add(producto);
                 }
@@ -176,6 +178,25 @@ public class SiteController : Controller
         List<Product> products = await this._contexto.Product.ToListAsync();
         return View(products);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Buscar(string? codigo)
+    {
+        if (codigo == null)
+        {
+            return NotFound();
+        }
+        // este sirve si codigo es llave primaria por lo que no sirve para esto.
+        // var product = await this._contexto.Product.FindAsync(codigo);
+        var product = await _contexto.Product.FirstOrDefaultAsync(p => p.Codigo == codigo);
+
+        if (product == null)
+        {
+            return NotFound();
+        }
+        return View(product);
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

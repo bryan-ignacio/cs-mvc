@@ -11,8 +11,12 @@
 <div class="row mt-4 justify-content-center">
     <div class="col-md-6 col-lg-4">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Codigo Producto..." id="buscarInput">
-            <button class="btn btn-primary" type="button">Buscar</button>
+            <form asp-controller="Site" asp-action="Buscar" method="get">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Codigo Producto..." name="codigo" />
+                    <button class="btn btn-primary" type="submit">Buscar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -1,0 +1,34 @@
+﻿@model CRUDproductsR1.Models.Product
+
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h4>Producto Encontrado</h4>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Site" asp-action="Buscar">
+                <div class="form-group">
+                    <label asp-for="Codigo" class="control-label"></label>
+                    <input asp-for="Codigo" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label"></label>
+                    <input asp-for="Nombre" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioUnitario" class="control-label"></label>
+                    <input asp-for="PrecioUnitario" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PrecioFardo" class="control-label"></label>
+                    <input asp-for="PrecioFardo" class="form-control" readonly>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-secondary mt-4" asp-controller="Site" asp-action="Mostrar">
+        <i class="fa-solid fa-circle-left"></i> Regresar</a>
+</div>
