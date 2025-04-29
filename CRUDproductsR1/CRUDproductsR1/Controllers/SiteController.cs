@@ -205,19 +205,20 @@ public class SiteController : Controller
     [HttpGet]
     public async Task<IActionResult> Buscar(string? codigo)
     {
-        if (codigo == null)
+        if (string.IsNullOrWhiteSpace(codigo))
         {
-            return NotFound();
+            TempData["Mensaje"] = "Debe ingresar un código.";
+            return RedirectToAction(nameof(Mostrar));
         }
-        // este sirve si codigo es llave primaria por lo que no sirve para esto.
-        // var product = await this._contexto.Product.FindAsync(codigo);
+
         var product = await _contexto.Product.FirstOrDefaultAsync(p => p.Codigo == codigo);
 
         if (product == null)
         {
-            return NotFound();
+            TempData["Mensaje"] = $"No se encontró ningún producto con el código '{codigo}'.";
+            return RedirectToAction(nameof(Mostrar));
         }
-        return View(product);
+        return View("Buscar", product);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
