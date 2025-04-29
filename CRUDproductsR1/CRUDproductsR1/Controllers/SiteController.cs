@@ -171,12 +171,11 @@ public class SiteController : Controller
     }
 
     [HttpGet]
-    public IActionResult Mostrar()
+    public async Task<IActionResult> Mostrar()
     {
-
-        return View();
+        List<Product> products = await this._contexto.Product.ToListAsync();
+        return View(products);
     }
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
