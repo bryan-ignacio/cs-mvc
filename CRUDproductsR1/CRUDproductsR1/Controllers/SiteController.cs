@@ -135,45 +135,62 @@ public class SiteController : Controller
             return View();
         }
 
-        List<Product> productos = new List<Product>();
+        using var stream = new StreamReader(archivo.OpenReadStream(), Encoding.UTF8);
+        string? linea;
+        var productosNuevos = new List<Product>();
+        var productosActualizar = new List<Product>();
 
-        using (var stream = new StreamReader(archivo.OpenReadStream(), Encoding.UTF8))
+        while ((linea = await stream.ReadLineAsync()) != null)
         {
-            string? linea;
-            while ((linea = await stream.ReadLineAsync()) != null)
+            var columnas = linea.Split(',');
+
+            if (columnas.Length != 4) continue;
+
+            try
             {
-                var columnas = linea.Split(',');
+                string codigo = columnas[0].Trim();
+                string nombre = columnas[1].Trim();
+                decimal precioUnitario = decimal.Parse(columnas[2].Trim(), CultureInfo.InvariantCulture);
+                decimal precioFardo = decimal.Parse(columnas[3].Trim(), CultureInfo.InvariantCulture);
 
-                if (columnas.Length != 4)
+                var existente = await _contexto.Product.FirstOrDefaultAsync(p => p.Codigo == codigo);
+
+                if (existente != null)
                 {
-                    continue; // saltar líneas mal formateadas
+                    // actualizar valores
+                    existente.Nombre = nombre;
+                    existente.PrecioUnitario = precioUnitario;
+                    existente.PrecioFardo = precioFardo;
+                    productosActualizar.Add(existente);
                 }
-                try
+                else
                 {
-                    // se crea el producto con los datos del archivo.
-                    var producto = new Product
+                    productosNuevos.Add(new Product
                     {
-                        Codigo = columnas[0].Trim(),
-                        Nombre = columnas[1].Trim(),
-                        PrecioUnitario = decimal.Parse(columnas[2].Trim(), CultureInfo.InvariantCulture),
-                        PrecioFardo = decimal.Parse(columnas[3].Trim(), CultureInfo.InvariantCulture)
-                    };
-                    // ahora validamos si este producto con este codigo ya existe?
-
-                    productos.Add(producto);
-                }
-                catch (Exception)
-                {
-                    // Opcional: manejar errores de parseo
-                    continue;
+                        Codigo = codigo,
+                        Nombre = nombre,
+                        PrecioUnitario = precioUnitario,
+                        PrecioFardo = precioFardo
+                    });
                 }
             }
+            catch
+            {
+                continue; // saltar línea malformada
+            }
         }
-        if (productos.Count > 0)
+
+        if (productosNuevos.Any())
         {
-            await _contexto.Product.AddRangeAsync(productos);
-            await _contexto.SaveChangesAsync();
+            await _contexto.Product.AddRangeAsync(productosNuevos);
         }
+
+        if (productosActualizar.Any())
+        {
+            _contexto.Product.UpdateRange(productosActualizar);
+        }
+
+        await _contexto.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));
     }
@@ -202,7 +219,6 @@ public class SiteController : Controller
         }
         return View(product);
     }
-
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
