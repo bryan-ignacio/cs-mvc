@@ -91,6 +91,24 @@ public class SiteController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    [HttpGet]
+    public IActionResult Agregar()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Agregar(Product product)
+    {
+        if (ModelState.IsValid)
+        {
+            this._contexto.Product.Add(product);
+            await this._contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
