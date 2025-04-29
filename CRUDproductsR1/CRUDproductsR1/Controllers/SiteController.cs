@@ -4,6 +4,8 @@ using CRUDproductsR1.Models;
 using CRUDproductsR1.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Globalization;
+using System.Text;
 
 namespace CRUDproductsR1.Controllers;
 
@@ -110,12 +112,61 @@ public class SiteController : Controller
     }
 
     [HttpGet]
-    //puedes crear un metodo que agregue varios productos a la db.
-    //el modelo Product: int Id, string Codigo, string Nombre, decimal PrecioUnitario, decimal Precio Fardo
-    // esto se hace desde un boton que tiene asp-action="Subir" pero desde este poder seleccionar un archivo.
     public IActionResult Subir()
     {
         return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Subir(IFormFile archivo)
+    {
+        if (archivo == null || archivo.Length == 0)
+        {
+            ModelState.AddModelError("archivo", "Por favor seleccione un archivo válido.");
+            return View();
+        }
+
+        List<Product> productos = new List<Product>();
+
+        using (var stream = new StreamReader(archivo.OpenReadStream(), Encoding.UTF8))
+        {
+            string? linea;
+            while ((linea = await stream.ReadLineAsync()) != null)
+            {
+                var columnas = linea.Split(',');
+
+                if (columnas.Length != 4)
+                {
+                    continue; // saltar líneas mal formateadas
+                }
+
+                try
+                {
+                    var producto = new Product
+                    {
+                        Codigo = columnas[0].Trim(),
+                        Nombre = columnas[1].Trim(),
+                        PrecioUnitario = decimal.Parse(columnas[2].Trim(), CultureInfo.InvariantCulture),
+                        PrecioFardo = decimal.Parse(columnas[3].Trim(), CultureInfo.InvariantCulture)
+                    };
+
+                    productos.Add(producto);
+                }
+                catch (Exception)
+                {
+                    // Opcional: manejar errores de parseo
+                    continue;
+                }
+            }
+        }
+        if (productos.Count > 0)
+        {
+            await _contexto.Product.AddRangeAsync(productos);
+            await _contexto.SaveChangesAsync();
+        }
+
+        return RedirectToAction(nameof(Index));
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
