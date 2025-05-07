@@ -221,6 +221,11 @@ public class SiteController : Controller
         return View("Buscar", product);
     }
 
+    [HttpGet]
+    public IActionResult Login()
+    {
+        return View();
+    }
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
