@@ -29,31 +29,39 @@ public class CategoriaRepository : ICategoriaRepository
 
     public bool CrearCategoria(Categoria categoria)
     {
-        throw new NotImplementedException();
+        categoria.FechaCreacion = DateTime.Now;
+        this._dbContext.Categoria.Add(categoria);
+        return Guardar();
     }
 
     public bool ExisteCategoria(int id)
     {
-        throw new NotImplementedException();
+        return this._dbContext.Categoria.Any(
+            c => c.Id == id
+        );
     }
 
     public bool ExixteCategoria(string nombre)
     {
-        throw new NotImplementedException();
+        bool valor = this._dbContext.Categoria.Any(
+            c => c.Nombre.ToLower().Trim() == nombre.ToLower().Trim()
+        );
+        return valor;
     }
 
     public Categoria GetCategoria(int CategoriaId)
     {
-        throw new NotImplementedException();
+        return this._dbContext.Categoria.FirstOrDefault(c => c.Id == CategoriaId);
     }
 
     public ICollection<Categoria> GetCategorias()
     {
-        throw new NotImplementedException();
+        return this._dbContext.Categoria.OrderBy(c => c.Nombre).ToList();
     }
 
+    // guarda los cambios siempre que se cree un registro.
     public bool Guardar()
     {
-        throw new NotImplementedException();
+        return this._dbContext.SaveChanges() >= 0 ? true : false;
     }
 }
