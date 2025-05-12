@@ -16,7 +16,19 @@ public class CategoriaRepository : ICategoriaRepository
     public bool ActualizarCategoria(Categoria categoria)
     {
         categoria.FechaCreacion = DateTime.Now;
-        this._dbContext.Categoria.Update(categoria);
+        // arreglando problema del put.
+        var categoriaExistente = this._dbContext.Categoria.Find(
+            categoria.Id
+        );
+
+        if (categoriaExistente != null)
+        {
+            this._dbContext.Entry(categoriaExistente).CurrentValues.SetValues(categoria);
+        }
+        else
+        {
+            this._dbContext.Categoria.Update(categoria);
+        }
         return Guardar();
     }
 

@@ -109,6 +109,12 @@ namespace MoviesAPI.Controllers
                 return BadRequest(ModelState);
             }
 
+            var categoriaExistente = this._ctRepo.GetCategoria(categoriaId);
+            if (categoriaExistente == null)
+            {
+                return NotFound($"No se encontro la categoria con ID {categoriaId}");
+            }
+
             // se hace la conversion.
             var categoria = this._mapper.Map<Categoria>(categoriaDto);
 
@@ -119,5 +125,40 @@ namespace MoviesAPI.Controllers
             }
             return NoContent();
         }
+
+
+        [HttpPut("{categoriaId:int}", Name = "ActualizarPutCategoria")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult ActualizarPutCategoria(int categoriaId, [FromBody] CategoriaDto categoriaDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (categoriaDto == null || categoriaId != categoriaDto.Id)
+            {
+                return BadRequest(ModelState);
+            }
+            var categoriaExistente = this._ctRepo.GetCategoria(categoriaId);
+            if (categoriaExistente == null)
+            {
+                return NotFound($"No se encontro la categoria con Id{categoriaId}");
+            }
+
+            var categoria = this._mapper.Map<Categoria>(categoriaDto);
+            if (!this._ctRepo.ActualizarCategoria(categoria))
+            {
+                ModelState.AddModelError("", $"No se pudo actualizar el registro{categoria.Nombre}");
+                return StatusCode(500, ModelState);
+            }
+
+            return NoContent();
+        }
+
     }
 }
