@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MoviesAPI.Models;
 using MoviesAPI.Models.Dtos;
 using MoviesAPI.Repository.IRepository;
@@ -86,6 +87,37 @@ namespace MoviesAPI.Controllers
                 return StatusCode(404, ModelState);
             }
             return CreatedAtRoute("GetCategoria", new { categoriaId = categoria.Id }, categoria);
+        }
+
+
+        // patch: permite actualizar un campo.
+        // ejemplo: si yo quiero actualizar un campo que tiene un recurso que tiene 10 campos. solo actualizo ese campo.
+        // con puth: tengo que enviar todos los campos.
+        [HttpPatch("categoriaId:int", Name = "ActualizarPatchCategoria")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public IActionResult ActualizarPatchCategoria(int categoriaId, [FromBody] CategoriaDto categoriaDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            if (categoriaDto == null || categoriaId != categoriaDto.Id)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // se hace la conversion.
+            var categoria = this._mapper.Map<Categoria>(categoriaDto);
+
+            if (!this._ctRepo.ActualizarCategoria(categoria))
+            {
+                ModelState.AddModelError("", $"No se pudo actualizar el registro {categoria.Nombre}");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
         }
     }
 }
