@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
 using MoviesAPI.Models;
 using MoviesAPI.Repository.IRepository;
-
 namespace MoviesAPI.Repository;
 
 public class CategoriaRepository : ICategoriaRepository
