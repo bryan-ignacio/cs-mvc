@@ -160,5 +160,28 @@ namespace MoviesAPI.Controllers
             return NoContent();
         }
 
+        [HttpDelete("{categoriaId:int}", Name = "BorrarCategoria")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult BorrarCategoria(int categoriaId)
+        {
+            if (!this._ctRepo.ExisteCategoria(categoriaId))
+            {
+                return NotFound();
+            }
+
+            var categoria = this._ctRepo.GetCategoria(categoriaId);
+
+            if (!this._ctRepo.BorrarCategoria(categoria))
+            {
+                ModelState.AddModelError("", $"Algo salio mal borrando el registro {categoria.Nombre}");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
+
     }
 }
