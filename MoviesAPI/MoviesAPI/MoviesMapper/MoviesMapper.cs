@@ -12,5 +12,9 @@ public class MoviesMapper : Profile
         // el reverse se usa para que se comuniquen entre si. -> <-
         CreateMap<Categoria, CategoriaDto>().ReverseMap();
         CreateMap<Categoria, CrearCategoriaDto>().ReverseMap();
+
+        CreateMap<Pelicula, PeliculaDto>().ReverseMap();
+        CreateMap<Pelicula, CrearPeliculaDto>().ReverseMap();
+
     }
 }
