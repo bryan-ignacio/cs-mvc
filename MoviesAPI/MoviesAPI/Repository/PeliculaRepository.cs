@@ -1,4 +1,5 @@
 using System;
+using Microsoft.EntityFrameworkCore;
 using MoviesAPI.Data;
 using MoviesAPI.Models;
 using MoviesAPI.Repository.IRepository;
@@ -23,46 +24,62 @@ public class PeliculaRepository : IPeliculaRepository
 
     public bool BorrarPelicula(Pelicula pelicula)
     {
-        throw new NotImplementedException();
-    }
-
-    public IEnumerable<Pelicula> BuscarPelicula(string nombre)
-    {
-        throw new NotImplementedException();
+        this._context.Pelicula.Remove(pelicula);
+        return Guardar();
     }
 
     public bool CrearPelicula(Pelicula pelicula)
     {
-        throw new NotImplementedException();
+        pelicula.FechaCreacion = DateTime.Now;
+        this._context.Pelicula.Add(pelicula);
+        return Guardar();
+    }
+
+    public IEnumerable<Pelicula> BuscarPelicula(string nombre)
+    {
+        IQueryable<Pelicula> query = this._context.Pelicula;
+        if (!string.IsNullOrEmpty(nombre))
+        {
+            query = query.Where(
+                e => e.Nombre.Contains(nombre) || e.Descripcion.Contains(nombre)
+                );
+        }
+        return query.ToList();
     }
 
     public bool ExistePelicula(int id)
     {
-        throw new NotImplementedException();
+        return this._context.Pelicula.Any(p => p.Id == id);
     }
 
     public bool ExistePelicula(string nombre)
     {
-        throw new NotImplementedException();
+        bool valor = this._context.Pelicula.Any(
+            p => p.Nombre.ToLower().Trim() == nombre.ToLower().Trim()
+        );
+        return valor;
     }
 
     public Pelicula GetPelicula(int peliculaId)
     {
-        throw new NotImplementedException();
+        return this._context.Pelicula.FirstOrDefault(p => p.Id == peliculaId);
     }
 
     public ICollection<Pelicula> GetPeliculas()
     {
-        throw new NotImplementedException();
+        return this._context.Pelicula.OrderBy(p => p.Nombre).ToList();
     }
 
     public ICollection<Pelicula> GetPeliculasEnCategoria(int categoriaId)
     {
-        throw new NotImplementedException();
+        return this._context.Pelicula.Include(
+            ca => ca.Categoria
+        )
+        .Where(ca => ca.CategoriaId == categoriaId).ToList();
     }
 
     public bool Guardar()
     {
-        throw new NotImplementedException();
+        return this._context.SaveChanges() >= 0 ? true : false;
     }
 }
