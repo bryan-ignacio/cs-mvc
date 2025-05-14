@@ -84,5 +84,38 @@ namespace MoviesAPI.Controllers
             // crea la pelicula y retorna los datos de esa pelicula.
             return CreatedAtRoute("GetPelicula", new { peliculaId = pelicula.Id }, pelicula);
         }
+
+        [HttpPatch("peliculaId:int", Name = "ActualizarPatchPelicula")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public IActionResult ActualizarPatchPelicula(int peliculaId, [FromBody] PeliculaDto peliculaDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (peliculaDto == null || peliculaId != peliculaDto.Id)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var peliculaExistente = this._peliculaRepo.GetPelicula(peliculaId);
+            if (peliculaExistente == null)
+            {
+                return NotFound($"No se encontro la pelicula con ID {peliculaId}");
+            }
+
+            // se hace la conversion.
+            var pelicula = this._mapper.Map<Pelicula>(peliculaDto);
+
+            if (!this._peliculaRepo.ActualizarPelicula(pelicula))
+            {
+                ModelState.AddModelError("", $"No se pudo actualizar el registro {pelicula.Nombre}");
+                return StatusCode(500, ModelState);
+            }
+            return NoContent();
+        }
     }
 }

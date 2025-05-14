@@ -18,7 +18,19 @@ public class PeliculaRepository : IPeliculaRepository
     public bool ActualizarPelicula(Pelicula pelicula)
     {
         pelicula.FechaCreacion = DateTime.Now;
-        this._context.Pelicula.Update(pelicula);
+        // arreglando problema del put.
+        var peliculaExistente = this._context.Pelicula.Find(
+            pelicula.Id
+        );
+
+        if (peliculaExistente != null)
+        {
+            this._context.Entry(peliculaExistente).CurrentValues.SetValues(pelicula);
+        }
+        else
+        {
+            this._context.Pelicula.Update(pelicula);
+        }
         return Guardar();
     }
 

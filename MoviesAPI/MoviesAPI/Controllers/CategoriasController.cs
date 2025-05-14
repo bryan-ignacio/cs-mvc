@@ -8,7 +8,7 @@ using MoviesAPI.Repository.IRepository;
 
 namespace MoviesAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/categorias")]
     [ApiController]
     public class CategoriasController : ControllerBase
     {
@@ -101,7 +101,7 @@ namespace MoviesAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             if (categoriaDto == null || categoriaId != categoriaDto.Id)
