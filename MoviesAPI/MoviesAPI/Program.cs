@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 
 // agregamos los repositorios
 builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddScoped<IPeliculaRepository, PeliculaRepository>();
 
 // agregamos el AutoMapper
 builder.Services.AddAutoMapper(typeof(MoviesMapper));
