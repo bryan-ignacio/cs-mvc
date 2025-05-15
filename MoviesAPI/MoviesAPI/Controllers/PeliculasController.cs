@@ -159,5 +159,26 @@ namespace MoviesAPI.Controllers
             }
             return Ok(peliculas);
         }
+
+        [HttpGet("Buscar")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult Buscar(string nombre)
+        {
+            try
+            {
+                var resultado = this._peliculaRepo.BuscarPelicula(nombre);
+                if (resultado.Any())
+                {
+                    return Ok(resultado);
+                }
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error recuperando datos.");
+            }
+        }
     }
 }
