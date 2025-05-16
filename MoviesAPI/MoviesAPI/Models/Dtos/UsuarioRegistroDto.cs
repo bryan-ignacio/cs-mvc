@@ -12,5 +12,7 @@ public class UsuarioRegistroDto
     public string Nombre { get; set; }
     [Required(ErrorMessage = "El Password es obligatorio.")]
     public string Password { get; set; }
+    public string Role { get; set; }
+
 }
 
